@@ -1,0 +1,289 @@
+/* ------------------------------ */
+/* Общие настройки */
+/* ------------------------------ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:#f6f2ec;
+
+    color:#3d3d3d;
+
+    font-family:'Inter',sans-serif;
+
+    line-height:1.7;
+}
+
+
+/* ------------------------------ */
+/* Первый экран */
+/* ------------------------------ */
+
+.hero{
+
+    position:relative;
+
+    width:100%;
+
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+/* ОБНОВЛЕНО: добавили плавное "живое" движение */
+.hero-image{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    filter:brightness(.65);
+
+    transform:scale(1);
+
+    animation:slowZoom 25s ease-in-out infinite alternate;
+}
+
+/* мягкий зум-эффект */
+@keyframes slowZoom{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.06);
+    }
+}
+
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+
+    backdrop-filter:blur(2px);
+
+}
+
+.overlay h1{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:72px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+    letter-spacing:1px;
+
+}
+
+.subtitle{
+
+    font-size:20px;
+
+    opacity:.9;
+
+    margin-bottom:40px;
+
+    max-width:650px;
+
+}
+
+
+/* ------------------------------ */
+/* Кнопка музыки */
+/* ------------------------------ */
+
+#musicButton{
+
+    background:rgba(255,255,255,.15);
+
+    border:1px solid rgba(255,255,255,.4);
+
+    color:white;
+
+    padding:14px 30px;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    backdrop-filter:blur(12px);
+
+    transition:.3s;
+
+}
+
+#musicButton:hover{
+
+    background:white;
+
+    color:#444;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* ------------------------------ */
+/* Основной блок */
+/* ------------------------------ */
+
+.content{
+
+    width:min(900px,92%);
+
+    margin:80px auto;
+
+}
+
+
+/* ------------------------------ */
+/* Карточки */
+/* ------------------------------ */
+
+.note{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    margin-bottom:28px;
+
+    box-shadow:
+
+        0 12px 35px rgba(0,0,0,.07);
+
+    transition:.35s;
+
+}
+
+.note:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+
+        0 20px 45px rgba(0,0,0,.12);
+
+}
+
+
+/* ------------------------------ */
+/* Дата */
+/* ------------------------------ */
+
+.note-date{
+
+    color:#8a847d;
+
+    font-size:14px;
+
+    letter-spacing:.5px;
+
+    margin-bottom:18px;
+
+}
+
+
+/* ------------------------------ */
+/* Текст */
+/* ------------------------------ */
+
+.note-text{
+
+    font-size:18px;
+
+    color:#444;
+
+    white-space:pre-wrap;
+
+}
+
+
+/* ------------------------------ */
+/* Анимация появления */
+/* ------------------------------ */
+
+.note{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    animation:fadeUp .7s forwards;
+
+}
+
+@keyframes fadeUp{
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* ------------------------------ */
+/* Мобильные устройства */
+/* ------------------------------ */
+
+@media(max-width:768px){
+
+    .overlay h1{
+
+        font-size:50px;
+
+    }
+
+    .subtitle{
+
+        font-size:17px;
+
+    }
+
+    .hero{
+
+        height:80vh;
+
+    }
+
+    .note{
+
+        padding:22px;
+
+    }
+
+}
